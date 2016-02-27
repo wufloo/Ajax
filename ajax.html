@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajax Tutorial</title>
-    <script src="jquery.js"></script>
+    <script src="jquery-2.2.1.min.js"></script>
     <style>
         body {
             padding: 0;
             margin: 0;
-            
+
         }
+
         #box {
             background: gray;
             text-align: center;
@@ -19,8 +20,27 @@
             height: 200px;
             margin: 0 auto;
         }
-        
+
     </style>
+    <script>
+        $(document).ready(function () {
+
+            $("#sub").click(function () {
+
+                var user_name = $("#name").val();
+
+                $.get("test.php",{name:user_name}, function (data) {
+
+                    $("#result").html(data);
+
+                });
+
+
+            });
+
+
+        });
+    </script>
 </head>
 <body>
 
@@ -28,7 +48,8 @@
     <h2>New User Register here:</h2>
     <input type="text" name="name" id="name" placeholder="Enter your name"/></br>
     <input type="submit" name="sub" value="Submit" id="sub"/>
-<div id="result"></div>
+
+    <div id="result"></div>
 </div>
 
 </body>
